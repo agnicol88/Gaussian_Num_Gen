@@ -8,7 +8,7 @@
 module gng_top(
     input clk,
     input rst,
-    output [15:0] data_out
+    output [15:0] awgn_out
     );
     wire [63:0] urn_data;
     (* ASYNC_REG = "TRUE" *) reg rst_sync_d1 = 1'd1;
@@ -21,6 +21,6 @@ module gng_top(
     end 
        
     urn_gen i_urn_gen (.clk(clk) , .rst(rst_sync_d2) , .urn(urn_data));
-    gng_interpolator i_gng_interpolator (.clk(clk), .data_in(urn_data), .data_out(data_out));
+    gng_interpolator i_gng_interpolator (.clk(clk), .data_in(urn_data), .data_out(awgn_out));
     
 endmodule
