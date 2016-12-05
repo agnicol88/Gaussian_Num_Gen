@@ -1,22 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 12/04/2016 10:24:37 AM
-// Design Name: 
 // Module Name: gng_top_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Description: Top level testbench. Compares output and intermediate values to
+//              expected results stored in text files.
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -64,7 +50,7 @@ module gng_top_tb;
        #9 ;
     end
     
-    gng_top i_gng_top (.clk(clk), .rst(rst), .data_out(data_out));
+    gng_top i_gng_top (.clk(clk), .rst(rst), .awgn_out(data_out));
     
     always @ (posedge test_clk) begin
         test_en_reg <= {test_en_reg[14:0],1'b1};
